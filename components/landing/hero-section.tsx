@@ -8,7 +8,7 @@ export function HeroSection() {
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
         <img
-          src="/images/masonry-0.jpg"
+          src="/others/rockface block wall.jpg"
           alt="Craftsperson laying bricks"
           className="animate-image-zoom h-full w-full object-cover"
         />
@@ -16,18 +16,12 @@ export function HeroSection() {
         <div className="hero-wash absolute inset-0" />
       </div>
 
-      {/* Hero Content */}
       <div className="container hero-content relative z-10 flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-
-        {/* =====================================================
-            LEFT: HERO COPY
-            Sticky only on large screens
-        ===================================================== */}
         <div className="hero-copy self-start lg:sticky lg:top-25">
           <h1 className="opacity-0 animate-fade-in-up">
-            Expert Bricklaying
+            STRONG WALLS,
             <br />
-            for Lasting Quality
+            LONG LASTING BRICKWORK
           </h1>
 
           <p className="opacity-0 animate-fade-in-up text-black!">

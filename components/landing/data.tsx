@@ -1,3 +1,4 @@
+// data.tsx
 import type { Marker } from '@/components/ui/dotted-map'
 
 export const serviceMapMarkers: Marker[] = [
@@ -7,9 +8,104 @@ export const serviceMapMarkers: Marker[] = [
 ]
 
 export const services = [
-  { title: 'Brick Restoration', tags: ['HERITAGE', 'REPAIR'], image: '/images/masonry-1.jpg', text: 'Meticulous repointing and heritage masonry repair, ensuring historical accuracy and renewed structural strength.', link: 'Explore Restoration' },
-  { title: 'New Builds', tags: ['CONTEMPORARY', 'ARCHITECTURE'], image: '/images/masonry-2.jpg', text: 'Executing clean lines and modern architectural designs with robust brickwork for high-end residential construction.', link: 'View Projects' },
-  { title: 'Renovations', tags: ['MODERNIZATION', 'EXTENSIONS'], image: '/images/masonry-3.jpg', text: 'Seamless integration of new masonry with existing structures to modernize and reinforce structural integrity.', link: 'Learn More' },
+  {
+    title: 'Brick Restoration',
+    tags: ['REPAIR'],
+    images: ['/restoration/restoration-2.png'],
+    subServices: [
+      {
+        title: 'Tuckpointing/Repointing',
+        description: 'grind out old crumby mortar and put fresh mortar in',
+        subItem: []
+      },
+      {
+        title: 'Brick Replacement',
+        description: 'remove spalled, blown, or cracked bricks and replace with matching ones',
+        subItem: []
+      },
+      {
+        title: 'Linted Repair',
+        description: 'replace rusted steel lintels above windows/doors that causes cracks',
+        subItem: []
+      },
+    ],
+    link: 'Explore Restoration'
+  },
+  {
+    title: 'New Builds',
+    tags: ['CONTEMPORARY', 'ARCHITECTURE'],
+    images: ['/new-builds/new-build-1.png'],
+    text: 'Executing clean lines and modern architectural designs with robust brickwork for high-end residential construction.',
+    subServices: [
+      {
+        title: 'Brick Piers',
+        description: null,
+        subItem: [],
+      },
+      {
+        title: 'External Brickwork',
+        description: null,
+        subItem: [
+          { name: 'veneer walls' },
+          { name: 'cavity walls' }
+        ],
+      },
+      {
+        title: 'Openings and Structural',
+        description: null,
+        subItem: [
+          { name: 'window sills' },
+          { name: 'control joints' },
+          { name: 'weep holes & flashings' }
+        ],
+      },
+      {
+        title: 'Front Fence & Letterbox',
+        description: null,
+        subItem: [],
+      },
+      {
+        title: 'Block Work',
+        description: null,
+        subItem: [
+          { name: 'retaining walls' },
+          { name: 'garage walls' },
+          { name: 'service ducts using blocks' }
+        ],
+      },
+    ],
+    link: 'View Projects'
+  },
+  {
+    title: 'Renovations',
+    tags: ['MODERNIZATION', 'EXTENSIONS'],
+    // Kept as an array (with 1 or more images) for structural consistency
+    images: ['/renovation/renovation.jpg'],
+    text: 'Seamless integration of new masonry with existing structures to modernize and reinforce structural integrity.',
+    link: 'Learn More',
+    subServices: [
+      {
+        title: 'New brick features',
+        description: null,
+        subItem: []
+      },
+      {
+        title: 'Extensions',
+        description: null,
+        subItem: []
+      },
+      {
+        title: 'Knock down & rebuild sections',
+        description: null,
+        subItem: []
+      },
+      {
+        title: 'Full Re-brick',
+        description: null,
+        subItem: []
+      },
+    ]
+  },
 ]
 
 export const gallery = [

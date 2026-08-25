@@ -4,9 +4,16 @@ import { FormEvent, useState } from 'react'
 import { DottedMap } from '@/components/ui/dotted-map'
 import { Arrow, serviceMapMarkers } from './data'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { Briefcase, Check, Copy, Mail, Phone, Search } from 'lucide-react'
 
 export function ContactSection() {
   const [sent, setSent] = useState(false)
+  const [copied, setCopied] = useState<string | null>(null)
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text)
+    setCopied(text)
+    setTimeout(() => setCopied(null), 2000) // Reset after 2 seconds
+  }
   const { ref, isVisible } = useScrollAnimation()
   function submit(e: FormEvent<HTMLFormElement>) { e.preventDefault(); setSent(true) }
   return (
@@ -22,8 +29,63 @@ export function ContactSection() {
           <h2>Let&apos;s build
             <br />something lasting.
           </h2>
-          <p>Tell us about your project and our team will be in touch to discuss how we can bring your vision to life.
+          <p>
+            Tell us about your project and our team will be in touch to discuss how we can bring your vision to life.
           </p>
+          <div className='flex flex-col gap-4 mt-4 justify-center'>
+
+            {/* Phone */}
+            <span className='flex gap-2 items-center group'>
+              <Phone size={15} />
+              <p
+                onClick={() => handleCopy('(+61) 424 775 116')}
+                className='text-sm! font-bold cursor-pointer hover:text-[#dca75a] transition-colors flex items-center gap-2'
+                title="Copy phone number"
+              >
+                (+61) 424 775 116
+                {copied === '(+61) 424 775 116' ? (
+                  <Check size={14} className="text-green-500" />
+                ) : (
+                  <Copy size={14} className="opacity-0 group-hover:opacity-100 transition-opacity text-gray-400" />
+                )}
+              </p>
+            </span>
+
+            {/* Email */}
+            <span className='flex gap-2 items-center group'>
+              <Mail size={15} />
+              <p
+                onClick={() => handleCopy('BULLPUP2024@outlook.com')}
+                className='text-sm! font-bold cursor-pointer hover:text-[#dca75a] transition-colors flex items-center gap-2'
+                title="Copy email address"
+              >
+                BULLPUP2024@outlook.com
+                {copied === 'BULLPUP2024@outlook.com' ? (
+                  <Check size={14} className="text-green-500" />
+                ) : (
+                  <Copy size={14} className="opacity-0 group-hover:opacity-100 transition-opacity text-gray-400" />
+                )}
+              </p>
+            </span>
+
+            {/* ABN */}
+            <span className='flex gap-2 items-center group'>
+              <Search size={15} />
+              <p
+                onClick={() => handleCopy('86 675 953 349')}
+                className='text-sm! font-bold cursor-pointer hover:text-[#dca75a] transition-colors flex items-center gap-2'
+                title="Copy ABN"
+              >
+                (ABN): 86 675 953 349
+                {copied === '86 675 953 349' ? (
+                  <Check size={14} className="text-green-500" />
+                ) : (
+                  <Copy size={14} className="opacity-0 group-hover:opacity-100 transition-opacity text-gray-400" />
+                )}
+              </p>
+            </span>
+
+          </div>
           <div className="contact-meta"><span>BUILT WITH INTEGRITY
           </span>
             <span>SYDNEY · NSW

@@ -1,8 +1,6 @@
 import {
     Crown,
     MapPin,
-    Pencil,
-    CheckCircle2,
     Trophy,
 } from "lucide-react";
 import Link from "next/link";

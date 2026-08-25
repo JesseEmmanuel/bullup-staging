@@ -16,7 +16,7 @@ export function AboutSection() {
         </div>
 
         <p className={isVisible ? "animate-fade-in-from-right [animation-delay:200ms]" : "opacity-0"}>
-          Expert bricklaying services driven by an unwavering attention to detail. We specialize in brick restoration, comprehensive renovations, and precision new builds. Expect nothing less than exceptional quality craftsmanship and robust, reliable service tailored for enduring structures.
+          Expert bricklaying services driven by an unwavering attention to detail. We specialize in block works, brick restoration, comprehensive renovations, and precision new builds. Expect nothing less than exceptional quality craftsmanship and robust, reliable service tailored for enduring structures.
         </p>
 
       </div>
