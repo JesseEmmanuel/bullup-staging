@@ -28,7 +28,6 @@ export function ServicesSection() {
               key={service.title}
               style={isVisible ? { animationDelay: `${index * 200 + 400}ms` } : {}}
             >
-              {/* DYNAMIC IMAGE GRID: Adapts if there is 1 image or multiple images */}
               <div className={`card-image grid gap-1 ${service.images.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
                 {service.images.map((imgSrc, imgIndex) => (
                   <div key={imgIndex} className="relative overflow-hidden h-full w-full">

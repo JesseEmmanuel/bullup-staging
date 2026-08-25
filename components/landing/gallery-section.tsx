@@ -12,13 +12,11 @@ export function GallerySection({ dynamicImages = [] }: GallerySectionProps) {
   const beforeAfterWork = [
     {
       id: 1,
-      before: '/before-after/before-1.jpg',
-      after: '/before-after/after-1.jpg',
+      path: '/before-after/before-after-1.jpg'
     },
     {
       id: 2,
-      before: '/before-after/before-2.jpg',
-      after: '/before-after/after-2.jpg',
+      path: '/before-after/before-after-2.jpg'
     }
   ];
   const masonryColumns = [
@@ -41,17 +39,11 @@ export function GallerySection({ dynamicImages = [] }: GallerySectionProps) {
             Transformations
           </h3>
 
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col lg:flex-row gap-4 justify-center items-center">
             {beforeAfterWork.map((project) => (
-              <div key={project.id} className="flex flex-col md:flex-row gap-4">
-                <div className="relative group w-full md:w-1/2 overflow-hidden rounded-xl shadow-lg">
-                  <img src={project.before} alt={`Before`} className="w-full h-64 md:h-80 object-cover" />
-                  <div className="absolute top-4 left-4 bg-black/80 text-white px-4 py-1.5 text-xs font-black tracking-widest uppercase rounded shadow">Before</div>
-                </div>
-
-                <div className="relative group w-full md:w-1/2 overflow-hidden rounded-xl shadow-lg border-2 border-[#dca75a]">
-                  <img src={project.after} alt={`After`} className="w-full h-64 md:h-80 object-cover" />
-                  <div className="absolute top-4 right-4 bg-[#dca75a] text-[#111827] px-4 py-1.5 text-xs font-black tracking-widest uppercase rounded shadow">After</div>
+              <div key={project.id}>
+                <div className="relative group w-full overflow-hidden rounded-xl shadow-lg">
+                  <img src={project.path} alt={`Before`} className="w-full h-full object-cover" />
                 </div>
               </div>
             ))}
@@ -79,10 +71,6 @@ export function GallerySection({ dynamicImages = [] }: GallerySectionProps) {
                           alt={title}
                           className="h-auto max-w-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-
-                        <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end h-1/2">
-                          <span className="font-bold text-sm tracking-wide">{title}</span>
-                        </figcaption>
                       </figure>
                     );
                   })}

@@ -17,7 +17,7 @@ export function HeroSection() {
       </div>
 
       <div className="container hero-content relative z-10 flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-        <div className="hero-copy self-start lg:sticky lg:top-25">
+        <div className="hero-copy self-start lg:sticky lg:top-20">
           <h1 className="opacity-0 animate-fade-in-up">
             STRONG WALLS,
             <br />

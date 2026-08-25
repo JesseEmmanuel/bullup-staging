@@ -86,8 +86,7 @@ export function ContactSection() {
             </span>
 
           </div>
-          <div className="contact-meta"><span>BUILT WITH INTEGRITY
-          </span>
+          <div className="contact-meta">
             <span>SYDNEY · NSW
             </span>
           </div>
