@@ -34,7 +34,7 @@ export const services = [
   {
     title: 'New Builds',
     tags: ['CONTEMPORARY', 'ARCHITECTURE'],
-    images: ['/new-builds/new-build-1.png'],
+    images: ['/others/rockface block wall.jpg'],
     text: 'Executing clean lines and modern architectural designs with robust brickwork for high-end residential construction.',
     subServices: [
       {
