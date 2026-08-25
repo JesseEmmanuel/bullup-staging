@@ -186,7 +186,7 @@ a {
 .hero-wash {
     position: absolute;
     inset: 0;
-    background: rgba(250, 249, 247, .7);
+    background: rgba(250, 249, 247, 0.89);
 }
 
 .hero-content {
