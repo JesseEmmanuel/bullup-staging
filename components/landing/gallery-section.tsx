@@ -19,12 +19,26 @@ export function GallerySection({ dynamicImages = [] }: GallerySectionProps) {
       path: '/before-after/before-after-2.jpg'
     }
   ];
-  const masonryColumns = [
-    dynamicImages.filter((_, index) => index % 4 === 0),
-    dynamicImages.filter((_, index) => index % 4 === 1),
-    dynamicImages.filter((_, index) => index % 4 === 2),
-    dynamicImages.filter((_, index) => index % 4 === 3),
-  ];
+
+  // 1. Calculate optimal columns based on total images (Max 4 columns on desktop)
+  const totalImages = dynamicImages.length;
+  const desktopCols = totalImages > 0
+    ? Math.min(4, Math.max(1, Math.ceil(Math.sqrt(totalImages))))
+    : 1;
+
+  // 2. Safely map dynamic numbers to Tailwind classes to prevent PurgeCSS from stripping them
+  const gridClassMap: Record<number, string> = {
+    1: 'md:grid-cols-1',
+    2: 'md:grid-cols-2',
+    3: 'md:grid-cols-3',
+    4: 'md:grid-cols-4',
+  };
+  const desktopGridClass = gridClassMap[desktopCols] || 'md:grid-cols-4';
+
+  // 3. Dynamically distribute the flat array of images across the calculated columns
+  const masonryColumns = Array.from({ length: desktopCols }, (_, colIndex) =>
+    dynamicImages.filter((_, index) => index % desktopCols === colIndex)
+  );
 
   return (
     <section ref={ref} className="section gallery-section py-16" id="gallery">
@@ -34,6 +48,7 @@ export function GallerySection({ dynamicImages = [] }: GallerySectionProps) {
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Our Recent Work</h2>
           <div className="rule w-16 h-1 bg-[#dca75a] mx-auto mb-8" />
         </div>
+
         <div className={`mb-20 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <h3 className="text-2xl font-bold mb-6 text-[#111827] text-center uppercase tracking-widest">
             Transformations
@@ -49,12 +64,15 @@ export function GallerySection({ dynamicImages = [] }: GallerySectionProps) {
             ))}
           </div>
         </div>
-        {dynamicImages.length > 0 && (
+
+        {totalImages > 0 && (
           <div className={`mt-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'} [animation-delay:200ms]`}>
             <h3 className="text-2xl font-bold mb-8 text-[#111827] text-center uppercase tracking-widest">
               Project Gallery
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+            {/* Apply the dynamic grid class here */}
+            <div className={`grid grid-cols-2 ${desktopGridClass} gap-4`}>
               {masonryColumns.map((column, colIndex) => (
                 <div key={colIndex} className="grid gap-4 h-fit">
                   {column.map((imagePath, imgIndex) => {
@@ -76,7 +94,6 @@ export function GallerySection({ dynamicImages = [] }: GallerySectionProps) {
                   })}
                 </div>
               ))}
-
             </div>
           </div>
         )}
