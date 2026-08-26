@@ -64,7 +64,7 @@ export function GallerySection({ dynamicImages = [] }: GallerySectionProps) {
                     return (
                       <figure
                         key={imgIndex}
-                        className="relative overflow-hidden rounded-xl group cursor-pointer shadow-md bg-gray-100"
+                        className="relative overflow-hidden group cursor-pointer shadow-md bg-gray-100"
                       >
                         <img
                           src={imagePath}

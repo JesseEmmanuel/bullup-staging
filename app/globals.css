@@ -504,7 +504,7 @@ a {
 }
 
 .contact input,
-.contact textarea {
+select .contact textarea {
     width: 100%;
     padding: 13px 0;
     border: 0;

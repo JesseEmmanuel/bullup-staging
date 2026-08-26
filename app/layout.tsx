@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { ToastContainer } from 'react-toastify'
 
 export const metadata: Metadata = {
   title: 'BULLPUP Pty Ltd | Expert Bricklaying',
@@ -42,6 +43,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+        <ToastContainer
+          position="top-right"
+          autoClose={4000}
+        />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
